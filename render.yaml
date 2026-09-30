@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: spectral-flow-laboratory
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+
