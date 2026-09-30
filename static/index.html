@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Spectral Water Laboratory</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.9/dist/katex.min.css" integrity="sha384-lPx0C4zIUZLpveABMwOFcFeGZwsvKBJfhJ85FN1PYOV7xApBcFMhcAEMVKF8loOI" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.9/dist/katex.min.js" integrity="sha384-19KE2cFb3U+RUWmyhBz7aLOGDG8WrRC6hE3oY/HTZZlAAVWYTdmvLC//+TIV3zUx" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.18.9/dist/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'\\[',right:'\\]',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false})"></script>
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"}}</script>
+  <style>
+    .work.simple{grid-template-columns:minmax(0,1fr) 230px}.essential{display:flex;flex-direction:column;justify-content:center;gap:13px}.essential label{margin:0}.essential select{margin:0}.seed-block{padding-bottom:22px;border-bottom:1px solid var(--line)}.seed-block strong{font:400 19px monospace;margin:8px 0 5px}.seed-block small{display:block;color:var(--acid);font:10px monospace;text-transform:uppercase}.behavior{margin:0;color:var(--muted);font:11px/1.55 monospace}.simple #viewport{min-height:650px}.title-explainer{max-width:720px;margin:-8px 0 24px;color:#91aaa3;font:12px/1.55 monospace}.model-card{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);border:1px solid var(--line);border-top:0;background:#0b181d}.equations,.water-properties{padding:24px}.water-properties{border-left:1px solid var(--line);background:var(--panel)}.model-card h2{margin:0 0 8px}.model-card h3{font:700 10px monospace;letter-spacing:.15em;color:#9fb4ae;margin:20px 0 9px}.model-card p{margin:7px 0;color:#91aaa3;font:12px/1.55 monospace}.model-card .equation{padding:12px;border-left:2px solid var(--acid);background:#071216;color:var(--ink);font:16px/1.65 KaTeX_Main,"STIX Two Math","Cambria Math",serif;overflow-x:auto}.model-card .equation .katex-display{margin:.25em 0;text-align:left}.model-card .equation .katex-display>.katex{text-align:left}.model-card .symbol{color:var(--acid)}.property-list{margin:0;padding:0;list-style:none}.property-list li{padding:9px 0;border-bottom:1px solid var(--line);font:11px/1.5 monospace}.property-list strong{display:inline;font:700 11px monospace;color:var(--ink)}.property-list span{display:block;color:#91aaa3;margin-top:2px}@media(max-width:850px){.work.simple{grid-template-columns:1fr}.essential{min-height:230px}.simple #viewport{min-height:520px}.model-card{grid-template-columns:1fr}.water-properties{border-left:0;border-top:1px solid var(--line)}}
+    .work.simple{grid-template-columns:minmax(0,1fr) 210px}.essential{gap:26px}.identity-block{padding-bottom:22px;border-bottom:1px solid var(--line)}.identity-block:last-child{padding:0;border:0}.identity-block label{margin:0}.identity-block strong{font:400 19px monospace;margin:8px 0 0}.identity-block .flow-type{color:var(--acid);font-size:14px;text-transform:uppercase;line-height:1.35}.legend{width:255px;display:block;letter-spacing:.08em}.legend b{display:block;margin-bottom:5px}.legend p{margin:0 0 8px;color:#9bb0aa;font:9px/1.45 monospace}.legend .color-line{display:block;width:100%;height:4px;margin-bottom:7px;background:linear-gradient(90deg,#224ed0 0 40%,#00e2ce 40% 83%,#d7a23c 83%)}.legend .key-row{display:flex;align-items:center;gap:6px;margin-top:4px;color:#b6c7c2;font:8px/1.3 monospace}.legend .swatch{width:15px;height:2px;flex:none}.legend .water{background:linear-gradient(90deg,#224ed0,#00e2ce)}.legend .reference{background:#d7a23c}.water-values{margin:0;padding:0;list-style:none}.water-values li{padding:9px 0;border-bottom:1px solid var(--line);font:11px/1.5 monospace}.water-values strong{display:inline;font:700 11px KaTeX_Main,"STIX Two Math","Cambria Math",serif;color:var(--ink)}.water-values li>span{display:block;color:#91aaa3;margin-top:5px}
+  </style>
+</head>
+<body>
+<main>
+  <header><div><p class="eyebrow">PERIODIC WATER &middot; FOURIER PSEUDOSPECTRAL DNS</p><h1>Spectral Flow<br><em>Laboratory</em></h1><p class="title-explainer">A direct numerical simulation of incompressible water in a repeating 3D cube. The velocity is represented with Fourier waves; no turbulence model is used.</p></div><div id="connection" class="status"><i></i> CONNECTING</div></header>
+  <section class="work simple"><div id="viewport"><div class="legend"><b>FLOW TRACERS</b><p>Each curve follows a moving parcel of water.</p><span class="color-line"></span><small class="key-row"><i class="swatch water"></i>BLUE + CYAN &mdash; WATER PATHS</small><small class="key-row"><i class="swatch reference"></i>GOLD &mdash; HIGHLIGHTED REFERENCE PATHS</small></div><div class="hint">CLICK FOR A NEW FLOW &middot; DRAG TO ROTATE</div></div>
+  <aside class="essential"><div class="identity-block"><label>SEED</label><strong id="seedDisplay">&mdash;</strong></div><div class="identity-block"><label>FLOW TYPE</label><strong id="familyDisplay" class="flow-type">initializing</strong></div></aside></section>
+  <section class="readouts"><article><label>PHYSICAL TIME</label><strong id="time">0.0000 s</strong><small id="dt">dt &mdash;</small></article><article><label>REYNOLDS NUMBER</label><strong id="re">&mdash;</strong><small>\(\mathrm{Re}=U_0L/\nu\)</small></article><article><label>DIMENSIONLESS DIVERGENCE</label><strong id="div">&mdash;</strong><small>\((L/U_0)\max |\nabla\!\cdot\!\mathbf{u}|\)</small></article><article><label>THROUGHPUT</label><strong id="fps">&mdash;</strong><small id="hz">render / solver</small></article></section>
+
+  <section class="model-card" aria-labelledby="model-title">
+    <div class="equations">
+      <p class="eyebrow">THE MODEL BEHIND THE PICTURE</p>
+      <h2 id="model-title">Incompressible Navier&ndash;Stokes</h2>
+      <p>The solver advances velocity <span class="symbol">u</span> while pressure <span class="symbol">p</span> enforces zero divergence:</p>
+      <div class="equation">\[\frac{\partial \mathbf{u}}{\partial t}+(\mathbf{u}\!\cdot\!\nabla)\mathbf{u}=-\frac{1}{\rho}\nabla p+\nu\nabla^2\mathbf{u}+\mathbf{f}\]\[\nabla\!\cdot\!\mathbf{u}=0\]</div>
+      <h3>PERIODIC 3D DOMAIN</h3>
+      <div class="equation">\[\mathbf{u}(\mathbf{x}+L\mathbf{e}_i,t)=\mathbf{u}(\mathbf{x},t),\qquad L=0.01\ \mathrm{m}\]</div>
+      <p>Leaving one face of the cube means re-entering through the opposite face. The wireframe is not a solid wall.</p>
+      <h3>FOURIER FORM USED IN CODE</h3>
+      <div class="equation">\[\frac{\partial\widehat{\mathbf{u}}}{\partial t}=-\mathbf{P}(\mathbf{k})\,\widehat{(\mathbf{u}\!\cdot\!\nabla)\mathbf{u}}-\nu|\mathbf{k}|^2\widehat{\mathbf{u}}+\widehat{\mathbf{f}}\]\[\mathbf{P}(\mathbf{k})=\mathbf{I}-\frac{\mathbf{k}\mathbf{k}^{\mathsf T}}{|\mathbf{k}|^2}\]</div>
+      <p>The projection \(\mathbf{P}\) removes the pressure contribution and enforces \(\mathbf{k}\!\cdot\!\widehat{\mathbf{u}}=0\). The nonlinear term is evaluated pseudospectrally with 2/3 dealiasing and integrated with fourth-order Runge&ndash;Kutta.</p>
+    </div>
+    <aside class="water-properties">
+      <p class="eyebrow">FIXED WATER PROPERTIES</p>
+      <h2>Water at 20&nbsp;&deg;C</h2>
+      <ul class="water-values">
+        <li><strong>\(\rho=998.2\ \mathrm{kg\,m^{-3}}\)</strong><span>Fixed to the density of liquid water at the stated reference condition.</span></li>
+        <li><strong>\(\mu=1.0016\!\times\!10^{-3}\ \mathrm{Pa\,s}\)</strong><span>Fixed to the dynamic viscosity of water.</span></li>
+        <li><strong>\(\nu=\mu/\rho=1.003406\!\times\!10^{-6}\ \mathrm{m^2\,s^{-1}}\)</strong><span>Fixed from the water density and dynamic viscosity above.</span></li>
+        <li><strong>\(T=293.15\ \mathrm{K}\;(20\,^{\circ}\mathrm C)\)</strong><span>Fixed as the condition used for the water properties.</span></li>
+        <li><strong>\(p_{\mathrm{ref}}=101{,}325\ \mathrm{Pa}\)</strong><span>Fixed as the reference condition for liquid water; the solver computes pressure fluctuations implicitly.</span></li>
+      </ul>
+      <h3>FIXED SIMULATION SETTINGS</h3>
+      <p>Grid: \(16^3\) points &middot; cube length: \(L=0.01\ \mathrm m\) &middot; initial RMS speed: \(U_0=0.001\ \mathrm{m\,s^{-1}}\). These are model settings, not intrinsic properties of water.</p>
+    </aside>
+  </section>
+  <footer><p>Water properties fixed at \(20\,^{\circ}\mathrm C\): \(\rho=998.2\ \mathrm{kg\,m^{-3}}\) &middot; \(\mu=1.0016\!\times\!10^{-3}\ \mathrm{Pa\,s}\) &middot; \(\nu=\mu/\rho\)</p><p>\(16^3\) &middot; \(U_0=0.001\ \mathrm{m\,s^{-1}}\) &middot; automatic structured flow mix</p><p id="error"></p></footer>
+</main>
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>

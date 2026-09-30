@@ -1,0 +1,26 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-cache-files-*/
+
+# Local runtime and editor files
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.selenium-cache/
+portfolio-edit/
+*.log
+.md
+
+# Generated verification output
+artifacts/
+static/evidence/*.png
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
